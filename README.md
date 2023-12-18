@@ -29,8 +29,6 @@ Accede al directorio del proyecto:
 ```
 cd app_consultas_chatGPT
 ```
-# Configura las variables de entorno:
-# Crea un archivo .env utilizando .env.example como referencia. Aquí es donde debes configurar las variables necesarias para la conexión a la base de datos.
 
 ### Ejecución de la aplicación
 Construye la imagen de Docker:
@@ -40,7 +38,7 @@ docker build -t manuelreina/app_aws:v2 .
 Ejecuta el contenedor Docker:
 
 ```
-docker run -p 5001:5000 manuelreina/app_aws:v2
+docker run -p 5000:5000 manuelreina/app_aws:v2
 ```
 
-La aplicación estará accesible en http://localhost:5001.
+La aplicación estará accesible en http://localhost:5000

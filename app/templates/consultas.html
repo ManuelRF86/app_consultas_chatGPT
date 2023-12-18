@@ -34,6 +34,10 @@
             margin-top: 5px;
             box-sizing: border-box;
         }
+        .instrucciones {
+            font-size: 15px;
+            margin-top: 20px;
+        }
 
         button {
             background-color: #84aab6;
@@ -91,28 +95,24 @@
 <body>
     <h1>Consultas en la Base de Datos</h1>
 
-    <!-- Formulario para introducir parámetros de consulta -->
+    <!-- formulario para introducir parámetros de consulta -->
     <form action="/realizar_consulta" method="get">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre">
 
-        <!--<label for="fecha">Fecha:</label>
-        <input type="date" name="fecha">-->
-
+        <div class="instrucciones">Consulta los registros de la base de datos filtrados por nombre. (Para ver la base de datos completa, no rellenes este campo).</div>
         <button type="submit">Realizar Consulta</button>
+
     </form>
 
-    <!-- Resultados de la consulta (puedes mostrarlos en una tabla, por ejemplo) -->
     <div class="resultados">
         {% if resultados %}
             <h2>Resultados:</h2>
             <table>
                 <tr>
-                    <!-- ... (cabezas de columna) ... -->
                 </tr>
                 {% for resultado in resultados %}
                     <tr>
-                        <!-- ... (datos de la fila) ... -->
                     </tr>
                 {% endfor %}
             </table>

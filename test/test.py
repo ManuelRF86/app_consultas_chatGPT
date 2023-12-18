@@ -1,4 +1,3 @@
-import pytest
 import os
 import requests
 
@@ -9,8 +8,8 @@ def test_home_route():
 
 def test_analizar_documento_route():
     script_dir = os.path.dirname(__file__)
-    data_dir = os.path.join(script_dir, 'data')
-    ruta = os.path.join(data_dir, 'Viggo_Peter_Mortensen_grande.txt')
+    # data_dir = os.path.join(script_dir, 'data')
+    ruta = os.path.join(script_dir, 'Viggo_Peter_Mortensen_grande.txt')
     
     with open(ruta, 'rb') as archivo:
         data = {'archivo': archivo, 'nombre': 'John', 'pregunta': '¿Qué edad tiene nuestro amigo Viggo?'}

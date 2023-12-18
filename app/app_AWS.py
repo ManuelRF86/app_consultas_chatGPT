@@ -8,9 +8,6 @@ from key import *
 
 app = Flask(__name__)
 
-#langchain
-
-
 #AWS
 username = "admin"
 password = AWS_password
@@ -51,7 +48,6 @@ def analizar_documento():
         qa_document_chain = AnalyzeDocumentChain(combine_docs_chain=qa_chain) 
 
     else:
-        # return"Por favor, introduce tu OpenAI API Key."
         openai_api_key= openai_key_private
     
         llm = ChatOpenAI(model="gpt-3.5-turbo", openai_api_key=openai_api_key)
@@ -72,7 +68,7 @@ def analizar_documento():
         if not pregunta:
             return "Error: La pregunta no se proporcionó"
         
-        tipos_aceptados = {'.txt', '.py', '.ipynb'} #csv
+        tipos_aceptados = {'.txt', '.py', '.ipynb'}
 
         if archivo.filename and not any(archivo.filename.lower().endswith(ext) for ext in tipos_aceptados):
             error_message = "Error: Tipo de archivo no admitido"
@@ -107,7 +103,6 @@ def consultas():
 @app.route('/realizar_consulta', methods=['GET'])
 def realizar_consulta():
     nombre = request.args.get('nombre')
-    fecha = request.args.get('fecha')
 
     conn = pymysql.connect(
         host=host,
@@ -120,12 +115,8 @@ def realizar_consulta():
     cursor = conn.cursor(pymysql.cursors.DictCursor)
 
     try:
-        if nombre:# and fecha:
-            consulta = f"SELECT * FROM gpt_table WHERE nombre LIKE LOWER('%{nombre}%')" #AND DATE(fecha) = '{fecha}'"
-        elif nombre:
+        if nombre:
             consulta = f"SELECT * FROM gpt_table WHERE nombre LIKE LOWER('%{nombre}%')"
-        #elif fecha:
-            #consulta = f"SELECT * FROM gpt_table WHERE DATE(fecha) = '{fecha}'"
         else:
             consulta = "SELECT * FROM gpt_table"
 
