@@ -1,3 +1,5 @@
+![img](documentacion/img/dark_library.png)
+
 # Proyecto de base de datos con AWS RDS, Flask y OpenAI
 
 Este proyecto fue desarrollado por un equipo de cuatro estudiantes de Data Science, compuesto por Steven Noboa, María Neches, Manuel Reina y Águeda González. El objetivo principal de la aplicación es conectar una base de datos SQL alojada en AWS con Langchaim de OpenAI utilizando Flask (python).
@@ -33,12 +35,12 @@ cd app_consultas_chatGPT
 ### Ejecución de la aplicación
 Construye la imagen de Docker:
 ```
-docker build -t manuelreina/app_aws:v2 .
+docker build -t manuelreina/app_gpt:v1 .
 ```
 Ejecuta el contenedor Docker:
 
 ```
-docker run -p 5000:5000 manuelreina/app_aws:v2
+docker run -p 5000:5000 manuelreina/app_gpt:v1
 ```
 
 La aplicación estará accesible en http://localhost:5000
